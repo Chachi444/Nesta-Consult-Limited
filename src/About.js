@@ -16,13 +16,16 @@ const About = () => (
       <div className="about-text">
         <h2>Our Journey, Your Future</h2>
         <p>
-          At Life-Medical-Diagnostic (LMD), we provide a comprehensive range of fertility and reproductive health services designed to support every stage of your path to parenthood. From advanced treatments like IVF, IUI, and gender selection to specialised programs such as surrogacy and embryo adoption, our expert team is committed to delivering compassionate, personalized care.
+          At Nesta-Consult-Limited (NCL), we believe every journey to parenthood begins with a spark of hope, and we’re here to nurture it into reality. With a spirit of Renewed Hope, we offer a comprehensive range of fertility and reproductive health services tailored to support you at every stage.
         </p>
         <p>
-          Beyond clinical treatment, LMD is proud to supply high-quality medical consumables and culture mediums to fertility and general hospitals across Nigeria. As a licensed surrogacy firm, we offer complete support under one roof—including ultrasound scans, laboratory diagnostics, and pharmacy services—ensuring seamless, trusted care from start to finish.
+          From advanced treatments like IVF, IUI, and gender selection to specialised programs including surrogacy and embryo adoption, our expert team delivers compassionate, personalized care designed to restore confidence and possibility. Whether you're just beginning your journey or continuing after setbacks, NCL stands as a beacon of hope and healing.
         </p>
         <p>
-          Whether you're seeking fertility solutions, diagnostic expertise, or reliable medical supplies, LMD is your one-stop destination for excellence in reproductive healthcare.
+          Beyond clinical care, NCL supplies high-quality medical consumables and culture mediums to fertility and general hospitals across Nigeria. As a licensed surrogacy firm, we provide complete support under one roof—ultrasound scans, laboratory diagnostics, and pharmacy services—ensuring seamless, trusted care from start to finish.
+        </p>
+        <p>
+          At NCL, we don’t just offer solutions, we renew dreams. Whether you're seeking fertility expertise, diagnostic precision, or reliable medical supplies, we are your one-stop destination for excellence in reproductive healthcare and the promise of a brighter tomorrow.
         </p>
         <a href="#appointment" className="about-cta">Book appointment</a>
       </div>
