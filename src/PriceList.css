@@ -1,0 +1,238 @@
+.pricelist-section {
+  padding: 4rem 0;
+  background: #f8f8f8; /* Light background */
+}
+
+.pricelist-heading {
+  text-align: center;
+  color: #1ca2a5; /* Teal/cyan */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.pricelist-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.price-card {
+  background: #ffffff; /* White */
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+  overflow: hidden;
+}
+
+.price-card:hover {
+  box-shadow: 0 8px 32px rgba(28, 162, 165, 0.15); /* Teal/cyan shadow */
+  transform: translateY(-5px);
+}
+
+.price-card.expanded {
+  transform: scale(1.02);
+  box-shadow: 0 12px 40px rgba(28, 162, 165, 0.2);
+}
+
+.price-card-title {
+  color: #1ca2a5; /* Teal/cyan */
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid #1ca2a5; /* Teal/cyan */
+  padding-bottom: 0.5rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-total {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f0f0f0; /* Light grey background */
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  color: #913567; /* Red */
+  margin-top: auto;
+}
+
+.expand-indicator {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #1ca2a5;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.price-breakdown-expanded {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid #1ca2a5;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.price-breakdown-expanded h4 {
+  color: #1ca2a5;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.breakdown-items {
+  margin-bottom: 2rem;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+  color: #333333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  padding-right: 1rem;
+}
+
+.item-subtitle {
+  display: block;
+  color: #666666;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+.item-price {
+  color: #913567;
+  font-weight: bold;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.book-appointment-btn,
+.contact-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.book-appointment-btn {
+  background: #913567;
+  color: #ffffff;
+}
+
+.book-appointment-btn:hover {
+  background: #7a2b56;
+}
+
+.contact-btn {
+  background: transparent;
+  color: #1ca2a5;
+  border: 2px solid #1ca2a5;
+}
+
+.contact-btn:hover {
+  background: #1ca2a5;
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricelist-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 0 1rem;
+  }
+  
+  .price-card {
+    padding: 1.5rem;
+    min-height: 120px;
+  }
+  
+  .price-card-title {
+    font-size: 1.2rem;
+  }
+  
+  .price-total {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .breakdown-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .item-name {
+    padding-right: 0;
+  }
+  
+  .item-price {
+    align-self: flex-end;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-appointment-btn,
+  .contact-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricelist-heading {
+    font-size: 2rem;
+  }
+  
+  .pricelist-section {
+    padding: 3rem 0;
+  }
+  
+  .pricelist-cards {
+    grid-template-columns: 1fr;
+  }
+}

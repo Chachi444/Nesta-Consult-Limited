@@ -1,0 +1,178 @@
+.price-details-container {
+  min-height: 100vh;
+  background: #f8f8f8;
+  padding: 2rem 0;
+}
+
+.price-details-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.back-button {
+  background: #1ca2a5;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: #158b8e;
+}
+
+.package-title {
+  color: #1ca2a5;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.price-breakdown {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.price-breakdown h2 {
+  color: #1ca2a5;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #1ca2a5;
+  padding-bottom: 0.5rem;
+}
+
+.breakdown-items {
+  margin-bottom: 2rem;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.breakdown-item:last-child {
+  border-bottom: none;
+}
+
+.item-name {
+  flex: 1;
+  color: #333333;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  padding-right: 1rem;
+}
+
+.item-subtitle {
+  display: block;
+  color: #666666;
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+.item-price {
+  color: #913567;
+  font-weight: bold;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.total-section {
+  text-align: center;
+  padding: 2rem;
+  background: #f0f0f0;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.total-section h3 {
+  color: #1ca2a5;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.book-appointment-btn,
+.contact-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.book-appointment-btn {
+  background: #913567;
+  color: #ffffff;
+}
+
+.book-appointment-btn:hover {
+  background: #7a2b56;
+}
+
+.contact-btn {
+  background: transparent;
+  color: #1ca2a5;
+  border: 2px solid #1ca2a5;
+}
+
+.contact-btn:hover {
+  background: #1ca2a5;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .price-details-content {
+    padding: 0 1rem;
+  }
+  
+  .package-title {
+    font-size: 2rem;
+  }
+  
+  .breakdown-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .item-name {
+    padding-right: 0;
+  }
+  
+  .item-price {
+    align-self: flex-end;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .book-appointment-btn,
+  .contact-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}

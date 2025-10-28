@@ -1,0 +1,103 @@
+/* Classy Footer Styles - uses theme variables from App.css */
+.footer-section {
+  background: #1ca2a5; /* Teal/cyan */
+  color: #ffffff; /* White */
+  padding: 2.5rem 0 1.2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-section, .footer-section * {
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.footer-social a {
+  color: #ffffff; /* White */
+  transition: color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  padding: 0.3rem;
+}
+
+.footer-social a:hover {
+  color: #f0f0f0; /* Light grey */
+  background: rgba(255,255,255,0.08);
+  transform: scale(1.12);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav a {
+  color: #f0f0f0; /* Light grey */
+  font-size: 1.08rem;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover {
+  color: #ffffff; /* White */
+  text-decoration: underline;
+}
+
+.footer-copy {
+  font-size: 1rem;
+  color: #f0f0f0; /* Light grey */
+  letter-spacing: 0.02em;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+  .footer-container {
+    padding: 0 1rem;
+  }
+  .footer-nav {
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-nav {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+  .footer-social {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-container {
+    gap: 1rem;
+  }
+  .footer-copy {
+    font-size: 0.95rem;
+  }
+}
