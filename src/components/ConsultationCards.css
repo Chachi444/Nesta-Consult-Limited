@@ -1,0 +1,89 @@
+/* Uses --theme-color; define in global CSS: :root { --theme-color: #0b3d91; } */
+
+.ncl-consultation-cards {
+  padding: 3rem 1rem;
+  color: #111827;
+  background: transparent;
+}
+
+.ncl-consultation-cards__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ncl-consultation-cards__title {
+  color: var(--theme-color, #0b3d91);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  margin: 0 0 1.25rem;
+  font-weight: 800;
+}
+
+/* Grid */
+.ncl-consultation-cards__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card */
+.ncl-card {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.4rem 1.2rem;
+  box-shadow: 0 12px 30px rgba(16,24,40,0.06);
+  transition: transform .16s ease, box-shadow .16s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ncl-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.09);
+}
+
+/* Badge */
+.ncl-card__badge {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(180deg, var(--theme-color, #0b3d91), rgba(0,0,0,0.12));
+  box-shadow: 0 8px 20px rgba(11,61,145,0.12);
+  margin-right: 12px;
+}
+
+/* Card body */
+.ncl-card__body {
+  flex: 1;
+}
+
+.ncl-card__title {
+  margin: 0 0 0.4rem;
+  color: var(--theme-color, #0b3d91);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ncl-card__desc {
+  margin: 0;
+  color: #374151;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ncl-consultation-cards__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .ncl-consultation-cards__grid { grid-template-columns: 1fr; }
+  .ncl-consultation-cards { padding: 2rem 0.8rem; }
+  .ncl-card__badge { width: 36px; height: 36px; flex: 0 0 36px; margin-right: 10px; }
+}

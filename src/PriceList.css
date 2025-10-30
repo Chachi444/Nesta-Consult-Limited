@@ -1,6 +1,13 @@
 .pricelist-section {
   padding: 4rem 0;
-  background: #f8f8f8; /* Light background */
+  /* layered background: semi-transparent dark overlay above the photo for readable text */
+  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('./assets/Baby.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* fallback background color */
+  background-color: #f8f8f8;
+  color: #fff; /* headings/labels over image will be light by default; individual cards can override */
 }
 
 .pricelist-heading {
@@ -21,7 +28,7 @@
 }
 
 .price-card {
-  background: #ffffff; /* White */
+  background: rgba(255,255,255,0.95); /* nearly-white so content remains readable against image */
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   padding: 2rem;

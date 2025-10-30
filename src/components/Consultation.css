@@ -1,0 +1,119 @@
+/* Define --theme-color in your global CSS (e.g. :root { --theme-color: #0b3d91; }) */
+
+.ncl-consultation {
+  padding: 3rem 1rem;
+  color: #111827;
+  background: transparent;
+}
+
+.ncl-consultation__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ncl-consultation__title {
+  color: var(--theme-color, #0b3d91);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  margin: 0 0 1.25rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* grid */
+.ncl-consultation__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* card */
+.ncl-consultation__card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem;
+  box-shadow: 0 12px 30px rgba(16,24,40,0.06);
+  transition: transform .16s ease, box-shadow .16s ease;
+  overflow: hidden;
+}
+
+.ncl-consultation__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(16,24,40,0.09);
+}
+
+/* badge */
+.ncl-consultation__badge {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(180deg, var(--theme-color, #0b3d91), rgba(0,0,0,0.12));
+  box-shadow: 0 8px 20px rgba(11,61,145,0.12);
+}
+
+/* numbered badge uses theme */
+.ncl-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 700;
+  background: var(--theme-color);
+  box-shadow: 0 6px 18px rgba(28,162,165,0.14);
+  transform: translateZ(0);
+}
+
+/* content */
+.ncl-consultation__content { flex: 1; }
+
+.ncl-consultation__card-title {
+  margin: 0 0 0.25rem;
+  color: var(--theme-color, #0b3d91);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ncl-consultation__card-desc {
+  margin: 0;
+  color: #374151;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  opacity: 0.95;
+}
+
+/* title & desc use theme for heading */
+.ncl-card__title {
+  color: var(--theme-color);
+  font-weight: 700;
+  margin: 0;
+  font-size: 1rem;
+  padding-left: 48px;
+}
+
+/* Read-more / CTA styles if used here (use theme) */
+.btn--primary { background: var(--theme-color); color: #fff; }
+.btn--outline { color: var(--theme-color); border-color: var(--theme-color); }
+
+/* responsive */
+@media (max-width: 900px) {
+  .ncl-consultation__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .ncl-consultation__grid { grid-template-columns: 1fr; }
+  .ncl-consultation { padding: 2rem 0.8rem; }
+  .ncl-consultation__badge { width: 36px; height: 36px; flex: 0 0 36px; font-size: 0.95rem; }
+}

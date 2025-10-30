@@ -1,0 +1,71 @@
+/* ensure theme vars */
+:root {
+  --theme-color: #1ca2a5;
+  --theme-accent: #913567;
+}
+
+/* container */
+.ncl-stats {
+  padding: 3.2rem 1.25rem;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent 60%);
+}
+
+/* inner layout */
+.ncl-stats__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+/* card */
+.ncl-stat-card {
+  background: #fff;
+  min-width: 180px;
+  flex: 1 1 200px;
+  max-width: 260px;
+  border-radius: 12px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(16,24,40,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* hover lift */
+.ncl-stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(145,53,103,0.08); /* uses accent tint */
+}
+
+/* value (number) */
+.ncl-stat-card__value {
+  font-family: 'Poppins', 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-weight: 800;
+  color: var(--theme-color); /* use primary theme color */
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+/* label */
+.ncl-stat-card__label {
+  font-size: 0.95rem;
+  color: #5b6b78;
+  text-align: center;
+}
+
+/* responsive */
+@media (max-width: 880px) {
+  .ncl-stat-card { flex: 1 1 45%; max-width: none; }
+}
+
+@media (max-width: 480px) {
+  .ncl-stats { padding: 2rem 0.8rem; }
+  .ncl-stat-card { flex: 1 1 100%; }
+  .ncl-stat-card__value { font-size: 1.8rem; }
+}

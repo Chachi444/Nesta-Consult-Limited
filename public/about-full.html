@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Nesta Consult Limited</title>
+  <style>
+    :root {
+      --theme-color: #1ca2a5;
+      --theme-accent: #913567;
+      --max-width: 1100px;
+      --card-radius: 12px;
+      --card-shadow: 0 12px 30px rgba(16,24,40,0.06);
+      --muted: #374151;
+      --bg: #f7fafc;
+    }
+    html,body { height:100%; margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; background: var(--bg); color:#111827; }
+    .wrap { max-width: var(--max-width); margin: 2.5rem auto; padding: 0 1rem; }
+    h1 { color: var(--theme-color); font-size: 1.9rem; margin: 0 0 1rem; text-align:center; font-weight:800; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      align-items:start;
+    }
+    .card {
+      background:#fff;
+      border-radius: var(--card-radius);
+      padding: 1.15rem 1.25rem;
+      box-shadow: var(--card-shadow);
+    }
+    .card h2 { margin:0 0 .5rem; color:var(--theme-color); font-size:1rem; font-weight:800; }
+    .card p { margin:0; color:var(--muted); line-height:1.55; }
+    .card ul { margin:0; padding-left:1rem; color:var(--muted); line-height:1.6; }
+    .wide { grid-column: 1 / -1; }
+    .back {
+      display:flex; justify-content:center; margin-top:1.25rem;
+    }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.56rem 1rem; border-radius:8px; font-weight:700; text-decoration:none; cursor:pointer;
+      border:none;
+    }
+    .btn--outline {
+      background:transparent; color:var(--theme-color); border:1px solid var(--theme-color);
+    }
+    /* small tweaks */
+    @media (max-width:900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-labelledby="about-page-title">
+    <h1 id="about-page-title">About Nesta Consult Limited</h1>
+
+    <div class="grid" aria-hidden="false">
+      <section class="card">
+        <h2>Year Established</h2>
+        <p>Founded in 2024, Nesta Consult Limited was created out of a passion to bridge the gap between fertility challenges and successful conception journeys across Africa and beyond.</p>
+      </section>
+
+      <section class="card">
+        <h2>Vision Statement</h2>
+        <p>To be Africa’s leading fertility and surrogacy consultancy, recognized for making parenthood possible through innovation, compassion, and professional excellence.</p>
+      </section>
+
+      <section class="card">
+        <h2>Mission Statement</h2>
+        <p>To support individuals and couples on their path to parenthood by providing expert fertility guidance, personalized reproductive solutions, and emotional support in a confidential and caring environment.</p>
+      </section>
+
+      <section class="card">
+        <h2>Core Values</h2>
+        <ul>
+          <li><strong>Integrity:</strong> We maintain honesty and confidentiality at all times.</li>
+          <li><strong>Compassion:</strong> Every client’s journey is handled with empathy and respect.</li>
+          <li><strong>Excellence:</strong> We uphold the highest standards in our services.</li>
+          <li><strong>Innovation:</strong> We embrace advanced fertility solutions for better outcomes.</li>
+          <li><strong>Commitment:</strong> We stand by you from consultation to conception.</li>
+        </ul>
+      </section>
+
+      <section class="card wide">
+        <h2>Why Choose Us</h2>
+        <ul>
+          <li><strong>Expert Guidance:</strong> Professional, evidence-based fertility support at every stage.</li>
+          <li><strong>Confidentiality & Care:</strong> Your privacy, dignity, and comfort come first.</li>
+          <li><strong>Comprehensive Solutions:</strong> From fertility assessments to surrogacy coordination.</li>
+          <li><strong>Affordability & Transparency:</strong> Clear pricing and honest communication.</li>
+          <li><strong>Personalized Approach:</strong> Every journey is unique, and so is our care.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Our Location</h2>
+        <p> Head Office: No. 2 Ajenipa Street, Ijede Road, Off Kingsfield College, Ikorodu, Lagos.<br> Virtual consultations available across Nigeria and internationally.</p>
+      </section>
+
+      
+    </div>
+
+    <div class="back">
+      <a class="btn btn--outline" href="/" aria-label="Back to home">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>

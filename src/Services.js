@@ -5,7 +5,7 @@ import ivfBg from "./assets/ivf.png"; // Make sure this path matches your asset
 const serviceData = [
   {
     title: "Fertility Treatment Packages",
-    icon: "🌱",
+    // icon: "🌱",
     items: [
       "Timed Intercourse",
       "Intrauterine Insemination (IUI)",
@@ -18,7 +18,7 @@ const serviceData = [
   },
   {
     title: "Surrogacy Services",
-    icon: "👶",
+    //icon: "👶",
     items: [
       "Full Surrogacy Program",
       "Legal and medical guidance",
@@ -28,7 +28,7 @@ const serviceData = [
   },
   {
     title: "Medical & Diagnostic Services",
-    icon: "🏥",
+    //icon: "🏥",
     items: [
       "Ultrasound Scans",
       "Laboratory Testing",
@@ -38,7 +38,7 @@ const serviceData = [
   },
   {
     title: "Clinic & Hospital Partnerships",
-    icon: "🧡",
+    //icon: "🧡",
     items: [
       "Fertility-focused consumables",
       "General hospital supplies",
