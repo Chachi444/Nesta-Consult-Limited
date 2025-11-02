@@ -1,80 +1,164 @@
+:root {
+  --theme-color: #1ca2a5;
+  --theme-accent: #913567;
+}
+
 .services-section {
-  padding: 4rem 0 4rem 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding: 3.5rem 1rem;
+  background: transparent; /* removed background image as requested */
+  color: #111827;
+}
+
+/* heading centered */
+h2.services-heading,
+.services-heading {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  text-align: center;
+  color: var(--theme-color);
 }
 
 .services-heading {
   text-align: center;
-  color: #1ca2a5; /* Teal/cyan */
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 2.5rem;
-  background: none;
+  color: var(--theme-color);
+
+  /* stronger display: larger size, heavier weight, tightened spacing */
+  display: block;
+  font-size: 2.75rem;       /* increased */
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: 900;         /* heavier */
+  unicode-bidi: isolate;
 }
 
+/* responsive: reduce heading on narrow screens */
+@media (max-width: 768px) {
+  .services-heading { font-size: 1.8rem; }
+}
+@media (max-width: 480px) {
+  .services-heading { font-size: 1.4rem; }
+}
+
+/* list form: vertical stack, centered */
 .services-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-}
-
-.service-card {
-  background: rgba(255,255,255,0.95);
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  padding: 2rem 1.5rem;
-  min-width: 270px;
-  max-width: 340px;
-  flex: 1 1 270px;
+  max-width: 900px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  transition: box-shadow 0.2s;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  align-items: center; /* center each card */
 }
 
-.service-card:hover {
-  box-shadow: 0 8px 32px rgba(28, 162, 165, 0.15); /* Teal/cyan shadow */
+/* single card: centered content, stacked image then text */
+.service-card {
+  width: 100%;
+  max-width: 780px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
-.service-icon {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
+/* Image wrapper: fixed height, center contents */
+.service-image-wrap {
+  position: relative; /* ensure badge sits on the image */
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: transparent; /* remove white backdrop */
+  padding: 0; /* no inner padding */
+  height: 440px; /* keep height so images are large */
+  overflow: hidden;
+}
+
+/* force the image to fill the wrapper without showing whitespace */
+#services .service-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* cover so no whitespace; crops if needed */
+  object-position: center;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  display: block;
+  border-radius: 0;        /* flush edges */
+  box-shadow: none;        /* remove shadow so image sits flush */
+  background: transparent;
+  transform-origin: center center;
+}
+
+/* subtle zoom on hover while keeping the main subject visible */
+.service-card:hover .service-image,
+.service-card:focus-within .service-image {
+  transform: scale(1.06);
+}
+
+/* body below image, centered */
+.service-body {
+  padding: 1rem 1.25rem 1.25rem;
   width: 100%;
 }
-
-.service-card h3 {
-  color: #1ca2a5; /* Teal/cyan */
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
+.service-title {
+  margin: 0 0 0.6rem;
+  color: var(--theme-color);
+  font-size: 1.1rem;
+  font-weight: 700;
 }
 
-.service-card ul {
-  padding-left: 1.2rem;
+/* list styling centered under title */
+.service-list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+  color: #374151;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  text-align: center; /* centered as requested */
+}
+.service-list li {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+.service-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.service-card li {
-  color: #333333; /* Dark grey */
-  font-size: 1.05rem;
-  margin-bottom: 0.7rem;
-  line-height: 1.5;
+/* small badge / tag (optional) */
+.service-image-wrap .service-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--theme-accent); /* use your theme accent */
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  z-index: 12; /* stay above image */
+  pointer-events: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .services-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-  .service-card {
-    width: 90%;
-    max-width: 500px;
-  }
+/* responsive tweaks */
+@media (max-width: 768px) {
+  .service-image-wrap { height: 360px; }
+}
+@media (max-width: 480px) {
+  .service-image-wrap { height: 260px; }
 }

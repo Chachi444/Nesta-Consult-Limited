@@ -1,22 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './carousel.css';
-import hero1 from '../assets/hero1.jpg';
-import hero2 from '../assets/hero2.jpg';
-import hero3 from '../assets/hero3.jpg';
+import one from '../assets/one.jpg';
+import Two from '../assets/Two.jpg';
+import Three from '../assets/Three.jpg';
 
 const SLIDES = [
   {
-    bg: hero1,
+    bg: one,
     title: 'Renewed Hope Begins Here',
     text: 'Your journey to parenthood deserves expert care, compassion, and unwavering support.'
   },
   {
-    bg: hero2,
+    bg: Two,
     title: 'Advanced Fertility Solutions',
     text: 'From IVF to surrogacy, we tailor every step to your unique path.'
   },
   {
-    bg: hero3,
+    bg: Three,
     title: "We Don’t Just Offer Solutions.",
     text: 'We Renew Dreams. At NCL, every heartbeat of hope matters.'
   }

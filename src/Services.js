@@ -1,11 +1,16 @@
 import React from "react";
 import "./Services.css";
-import ivfBg from "./assets/ivf.png"; // Make sure this path matches your asset
+
+import fertilityImg from "./assets/Fertility treatment packages.jpg";
+import surrogacyImg from "./assets/Surrogacy service.jpg";
+import medicalImg from "./assets/Medical and diagnostic services.jpg";
+import clinicImg from "./assets/Clinic and Hospital partnership.jpg";
 
 const serviceData = [
   {
     title: "Fertility Treatment Packages",
-    // icon: "🌱",
+    img: fertilityImg,
+    badge: "IUI", // added badge text
     items: [
       "Timed Intercourse",
       "Intrauterine Insemination (IUI)",
@@ -18,7 +23,8 @@ const serviceData = [
   },
   {
     title: "Surrogacy Services",
-    //icon: "👶",
+    img: surrogacyImg,
+    badge: "Surrogacy",
     items: [
       "Full Surrogacy Program",
       "Legal and medical guidance",
@@ -28,7 +34,8 @@ const serviceData = [
   },
   {
     title: "Medical & Diagnostic Services",
-    //icon: "🏥",
+    img: medicalImg,
+    badge: "Screening",
     items: [
       "Ultrasound Scans",
       "Laboratory Testing",
@@ -38,7 +45,8 @@ const serviceData = [
   },
   {
     title: "Clinic & Hospital Partnerships",
-    //icon: "🧡",
+    img: clinicImg,
+    badge: "Collaborative",
     items: [
       "Fertility-focused consumables",
       "General hospital supplies",
@@ -49,24 +57,33 @@ const serviceData = [
 ];
 
 const Services = () => (
-  <section
-    className="services-section"
-    style={{
-      background: `linear-gradient(rgba(255, 248, 240, 0.92), rgba(255, 248, 240, 0.92)), url(${ivfBg}) center/cover no-repeat`,
-    }}
-    id="services"
-  >
+  <section className="services-section" id="services">
     <h2 className="services-heading">Our Services</h2>
     <div className="services-cards">
       {serviceData.map((service, idx) => (
         <div className="service-card" key={idx}>
-          <div className="service-icon">{service.icon}</div>
-          <h3>{service.title}</h3>
-          <ul>
-            {service.items.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
+          <div className="service-image-wrap">
+            {/* badge rendered inside image wrapper so it sits on the image */}
+            {service.badge && (
+              <span className="service-badge" aria-hidden="true">
+                {service.badge}
+              </span>
+            )}
+            <img
+              src={service.img}
+              alt={service.title}
+              className="service-image"
+            />
+          </div>
+
+          <div className="service-body">
+            <h3 className="service-title">{service.title}</h3>
+            <ul className="service-list">
+              {service.items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </div>

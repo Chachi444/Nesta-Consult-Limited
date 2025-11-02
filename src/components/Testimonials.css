@@ -1,71 +1,199 @@
-:root { /* ...existing vars... */ }
-
-/* container */
-.ncl-testimonials {
-  padding: 3rem 1rem;
-  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent 60%);
+:root {
+  --theme-color: #1ca2a5; /* teal */
+  --theme-accent: #913567; /* magenta */
+  --muted: rgba(28,162,165,0.22);
+  --light-magenta-bg: rgba(145,53,103,0.06); /* soft magenta background */
 }
 
-/* inner wrapper */
+/* Section background */
+.ncl-testimonials {
+  padding: 2.5rem 0;
+  background: var(--light-magenta-bg);
+}
 .ncl-testimonials__inner {
-  max-width: 1100px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem;
   text-align: center;
 }
 
-/* section title */
-.ncl-testimonials__title {
-  font-size: 1.5rem;
-  margin-bottom: 1.25rem;
-  color: var(--theme-color, #0b3d91);
+/* Eyebrow & Heading */
+.ncl-testimonials__eyebrow {
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.15em;
   font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+.ncl-testimonials__heading {
+  color: var(--theme-accent);
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
 }
 
-/* list layout */
-.ncl-testimonials__list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  align-items: start;
+/* Viewport */
+.ncl-testimonials__viewport {
+  position: relative;
+  overflow: visible; /* allow full card to show */
+  width: 100%;
+  margin: 0 auto 1rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* single testimonial */
-.ncl-testimonial {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1.25rem 1.1rem;
-  box-shadow: 0 10px 28px rgba(16,24,40,0.06);
-  text-align: left;
-}
-
-/* quote styling */
-.ncl-testimonial__quote {
+/* track: simple container (no absolute stacking needed for desktop) */
+.ncl-testimonials__track {
+  position: relative;
+  width: 100%;
+  height: auto;
   display: block;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #1f2937;
-  margin: 0 0 0.9rem;
-  font-style: normal;
 }
 
-/* author */
+/*
+  Show only the active slide and keep it in normal flow so the card is not clipped.
+  Non-active slides are hidden via display:none to prevent them from appearing during transition.
+*/
+.ncl-testimonial {
+  /* hide by default to avoid layout conflicts */
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px; /* mobile-sized card applied to desktop as requested */
+  margin: 0 auto;
+  padding: 22px 18px;
+  border-radius: 12px;
+  border: 2px solid rgba(28,162,165,0.12);
+  background: rgba(28,162,165,0.02);
+  box-shadow: 0 10px 22px rgba(11,61,145,0.04);
+  transition: transform 360ms ease, opacity 360ms ease;
+}
+
+/* active slide becomes visible and uses normal document flow */
+.ncl-testimonial.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Typography */
 .ncl-testimonial__author {
-  font-size: 0.92rem;
-  color: #374151;
+  margin: 0;
+  color: var(--theme-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.ncl-testimonial__stars {
+  margin: 0.5rem 0 1rem;
+  color: rgba(145,53,103,0.28); /* faded magenta */
+  font-size: 1.1rem;
+}
+.ncl-testimonial__quote {
+  font-style: italic;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 85%;
+  margin: 0 auto;
+  text-align: center;
+}
+.ncl-testimonial__by {
+  margin-top: 1rem;
+  color: #666;
   font-weight: 600;
-  text-align: right;
 }
 
-/* small screens */
-@media (max-width: 880px) {
-  .ncl-testimonials__list {
-    grid-template-columns: 1fr;
+/* Carousel Dots */
+.ncl-testimonials__dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1rem;
+}
+.ncl-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--theme-accent);
+  transition: all 0.3s ease;
+}
+.ncl-dot:hover {
+  background-color: var(--theme-color);
+  transform: scale(1.1);
+}
+.ncl-dot.active {
+  background-color: var(--theme-color);
+  box-shadow: 0 0 12px rgba(28,162,165,0.4);
+  transform: scale(1.1);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 767px) {
+  .ncl-testimonials__viewport {
+    overflow: hidden; /* clip to viewport */
+    padding: 0;
+  }
+
+  /* track becomes a horizontal flex strip */
+  .ncl-testimonials__track {
+    display: flex;
+    gap: 12px;
+    transition: transform 520ms cubic-bezier(.22,.9,.36,1);
+    will-change: transform;
+    padding: 8px 6px;
+    box-sizing: border-box;
+  }
+
+  /* slides become flex items, visible by default */
+  .ncl-testimonial {
+    position: relative; /* normal flow */
+    display: block;
+    flex: 0 0 calc(100% / 3); /* three per view */
+    width: calc(100% / 3);
+    max-width: none;
+    margin: 0;
+    padding: 16px;
+    border-radius: 10px;
+    border: 2px solid rgba(28,162,165,0.08); /* lighter teal border */
+    background: rgba(255,255,255,0.98);
+    box-shadow: 0 8px 18px rgba(11,61,145,0.04);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* on mobile, active class can be used to add emphasis if wanted */
+  .ncl-testimonial.active {
+    box-shadow: 0 12px 26px rgba(11,61,145,0.08);
+    transform: translateY(-4px);
+  }
+
+  /* quote sizing adjusted for narrower tiles */
+  .ncl-testimonial__quote {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 100%;
+    padding: 0 6px;
+    text-align: center;
+  }
+
+  /* dots remain below carousel */
+  .ncl-testimonials__dots {
+    margin-top: 12px;
   }
 }
-
-/* subtle accent on hover */
-.ncl-testimonial:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(16,24,40,0.09);
-  transition: transform .18s ease, box-shadow .18s ease;
+@media (min-width: 1024px) {
+  .ncl-testimonial {
+    min-height: 300px;
+    padding: 2.25rem 2rem;
+  }
 }

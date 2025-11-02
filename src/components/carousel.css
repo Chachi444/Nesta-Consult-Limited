@@ -146,6 +146,31 @@
   outline: none;
 }
 
+/* Ensure buttons in slides animate on hover and use theme color */
+.ncl-slide__content .btn {
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+
+/* Primary button: slight lift + stronger shadow on hover (keeps theme color) */
+.ncl-slide__content .btn--primary:hover,
+.ncl-slide__content .btn--primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(28,162,165,0.18); /* uses teal tint */
+  filter: brightness(0.98);
+  outline: none;
+}
+
+/* Outline button: fill with theme color on hover and invert text color */
+.ncl-slide__content .btn--outline:hover,
+.ncl-slide__content .btn--outline:focus {
+  background: var(--theme-color, #1ca2a5);
+  color: #fff;
+  border-color: var(--theme-color, #1ca2a5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(28,162,165,0.14);
+  outline: none;
+}
+
 /* Dots */
 .ncl-dot { background: rgba(255,255,255,0.45); }
 .ncl-dot.active { background: var(--theme-color); }

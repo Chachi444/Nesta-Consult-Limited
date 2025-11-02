@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import doctor2 from '../assets/doctor2.png';
+import Nesta from '../assets/Nesta.png';
 
 export default function About() {
   return (
@@ -9,7 +9,7 @@ export default function About() {
         <div className="ncl-about__card">
           {/* image on top */}
           <div className="ncl-about__media">
-            <img src={doctor2} alt="Doctor with baby" className="ncl-about__image ncl-about__image--featured" />
+            <img src={Nesta} alt="Doctor with baby" className="ncl-about__image ncl-about__image--featured" />
           </div>
 
           {/* content below */}

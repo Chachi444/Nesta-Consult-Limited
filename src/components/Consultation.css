@@ -1,119 +1,172 @@
-/* Define --theme-color in your global CSS (e.g. :root { --theme-color: #0b3d91; }) */
+/* Theme */
+:root {
+  --theme-primary: #913567; /* magenta (main) */
+  --theme-secondary: #1ca2a5; /* teal (backup) */
+  --panel-bg: rgba(145,53,103,0.06);
+  --card-bg: #ffffff;
+  --card-radius: 14px;
+  --dark-shade: #fff; /* use white for the "dark" shade as requested */
+}
 
+/* Section background (use dark shade variable) */
 .ncl-consultation {
-  padding: 3rem 1rem;
-  color: #111827;
-  background: transparent;
+  background: var(--dark-shade); /* use white "dark shade" */
+  padding: 72px 40px; /* roomy background padding to match image */
+  margin: 28px 0;
+  border-radius: 20px;
+  box-shadow: 0 28px 60px rgba(145,53,103,0.06);
 }
 
+/* Inner container: center content and constrain width */
 .ncl-consultation__inner {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
+  padding: 0 18px;
 }
 
+/* Title: centered with icon and spacing exactly like pasted */
 .ncl-consultation__title {
-  color: var(--theme-color, #0b3d91);
-  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
-  margin: 0 0 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--theme-primary);
+  font-size: 2rem;            /* larger, like the picture */
   font-weight: 800;
+  margin: 0 auto 36px;
   text-align: center;
 }
 
-/* grid */
+/* Grid: two columns on desktop, single column on small screens */
 .ncl-consultation__grid {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 36px;
+  align-items: start;
 }
 
-/* card */
+/* Card: exact padding, margin and visual style */
 .ncl-consultation__card {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
+  position: relative;
   background: #fff;
   border-radius: 12px;
-  padding: 1.2rem;
-  box-shadow: 0 12px 30px rgba(16,24,40,0.06);
-  transition: transform .16s ease, box-shadow .16s ease;
-  overflow: hidden;
+  padding: 20px 24px 20px 96px; /* room for meta column */
+  box-shadow: 0 8px 30px rgba(11,61,145,0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  overflow: visible;
+  border: none;
 }
 
-.ncl-consultation__card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(16,24,40,0.09);
-}
-
-/* badge */
-.ncl-consultation__badge {
-  flex: 0 0 44px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1rem;
-  background: linear-gradient(180deg, var(--theme-color, #0b3d91), rgba(0,0,0,0.12));
-  box-shadow: 0 8px 20px rgba(11,61,145,0.12);
-}
-
-/* numbered badge uses theme */
-.ncl-card__badge {
+/* deep magenta slab (behind) and thin light edge (in front) */
+.ncl-consultation__card::before,
+.ncl-consultation__card::after {
+  content: "";
   position: absolute;
-  top: 12px;
   left: 12px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  top: 12px;
+  bottom: 12px;
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+/* darker/back slab slightly offset left to create the stacked effect */
+.ncl-consultation__card::before {
+  width: 12px;
+  background: rgba(145,53,103,0.95); /* deep magenta */
+  transform: translateX(-6px);
+  box-shadow: 6px 6px 0 rgba(145,53,103,0.06);
+  z-index: 0;
+}
+
+/* lighter/front slab flush with card edge */
+.ncl-consultation__card::after {
+  width: 10px;
+  background: linear-gradient(180deg, rgba(145,53,103,0.95), rgba(145,53,103,0.85));
+  transform: translateX(0);
+  z-index: 1;
+}
+
+/* Meta column: icon circle and numbered badge */
+.ncl-consultation__meta {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 2; /* put above the pseudo slabs */
+}
+
+/* Icon circle: strong magenta fill */
+.ncl-consultation__icon {
+  width: 56px;
+  height: 56px;
   display: inline-grid;
   place-items: center;
+  border-radius: 50%;
+  background: var(--theme-primary);
   color: #fff;
-  font-weight: 700;
-  background: var(--theme-color);
-  box-shadow: 0 6px 18px rgba(28,162,165,0.14);
-  transform: translateZ(0);
+  box-shadow: 0 8px 20px rgba(145,53,103,0.12);
 }
 
-/* content */
-.ncl-consultation__content { flex: 1; }
+/* Number badge: small round white badge with magenta number */
+.ncl-consultation__number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--theme-primary);
+  display: inline-grid;
+  place-items: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 14px rgba(145,53,103,0.06);
+}
 
+/* Content: exact heading and em-dash description spacing */
+.ncl-consultation__content {
+  margin-left: 0;
+}
 .ncl-consultation__card-title {
-  margin: 0 0 0.25rem;
-  color: var(--theme-color, #0b3d91);
-  font-size: 1rem;
-  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--theme-primary);
+  font-size: 1.05rem;
+  font-weight: 800;
 }
-
 .ncl-consultation__card-desc {
   margin: 0;
-  color: #374151;
+  color: rgba(55,65,81,0.92); /* softened dark for better blend */
   font-size: 0.98rem;
-  line-height: 1.45;
-  opacity: 0.95;
+  line-height: 1.6;
 }
 
-/* title & desc use theme for heading */
-.ncl-card__title {
-  color: var(--theme-color);
-  font-weight: 700;
-  margin: 0;
-  font-size: 1rem;
-  padding-left: 48px;
+/* Hover lift */
+.ncl-consultation__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 46px rgba(145,53,103,0.08);
 }
 
-/* Read-more / CTA styles if used here (use theme) */
-.btn--primary { background: var(--theme-color); color: #fff; }
-.btn--outline { color: var(--theme-color); border-color: var(--theme-color); }
-
-/* responsive */
-@media (max-width: 900px) {
-  .ncl-consultation__grid { grid-template-columns: repeat(2, 1fr); }
+/* Responsive: single column and adjust spacing to match small-screen design */
+@media (max-width: 880px) {
+  .ncl-consultation__grid { grid-template-columns: 1fr; gap: 20px; }
+  .ncl-consultation__card { padding: 14px 16px 14px 84px; }
+  .ncl-consultation__meta { left: 18px; }
+  .ncl-consultation__icon { width: 44px; height: 44px; }
+  .ncl-consultation__number { width: 26px; height: 26px; font-size: 0.88rem; }
+  .ncl-consultation { padding: 36px 16px; border-radius: 14px; }
 }
 
-@media (max-width: 520px) {
-  .ncl-consultation__grid { grid-template-columns: 1fr; }
-  .ncl-consultation { padding: 2rem 0.8rem; }
-  .ncl-consultation__badge { width: 36px; height: 36px; flex: 0 0 36px; font-size: 0.95rem; }
+/* Very small screens tweak */
+@media (max-width: 420px) {
+  .ncl-consultation__card { padding-left: 72px; }
+  .ncl-consultation__icon { width: 38px; height: 38px; }
+  .ncl-consultation__title { font-size: 1.12rem; }
+}
+
+/* Accessibility: ensure icon color follows theme when system prefers */
+@media (prefers-color-scheme: dark) {
+  /* keep the "dark shade" as white per request; adjust card contrast only */
+  .ncl-consultation { background: var(--dark-shade); }
+  .ncl-consultation__card { background: var(--card-bg); color: #111827; border-color: rgba(145,53,103,0.08); }
 }
