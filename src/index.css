@@ -1,13 +1,80 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Theme variables */
+:root {
+  --theme-primary: #913567; /* magenta (hover / headings) */
+  --theme-accent: #1ca2a5;  /* teal/cyan (default buttons) */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Base reset (minimal) */
+* { box-sizing: border-box; }
+
+/* Ensure headings are magenta and bold (keeps earlier requests) */
+h1, h2, h3, h4, h5, h6,
+.package-title,
+.services-heading,
+.pricelist-heading,
+.ncl-testimonials__heading,
+.ncl-consultation__title {
+  color: var(--theme-primary) !important;
+  font-weight: 800 !important;
+}
+
+/* Buttons: default teal/cyan; hover -> magenta */
+/* Target common button selectors used across components */
+button,
+a.btn,
+.btn,
+.book-appointment-btn,
+.contact-btn,
+.back-button,
+.header-cta,
+.ncl-slide__actions .btn,
+.service-card .btn,
+.price-card .btn {
+  background: var(--theme-accent);
+  color: #fff;
+  border: none;
+  padding: 0.56rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+/* Hover / focus: magenta */
+button:hover,
+a.btn:hover,
+.btn:hover,
+.book-appointment-btn:hover,
+.contact-btn:hover,
+.back-button:hover,
+.header-cta:hover,
+.ncl-slide__actions .btn:hover,
+.service-card .btn:hover,
+.price-card .btn:hover,
+button:focus,
+a.btn:focus,
+.btn:focus {
+  background: var(--theme-primary);
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 34px rgba(145,53,103,0.14);
+  outline: none;
+}
+
+/* Keep outline-style buttons as border-only but still follow hover behavior */
+.btn--outline {
+  background: transparent;
+  color: var(--theme-accent);
+  border: 1px solid var(--theme-accent);
+}
+.btn--outline:hover,
+.btn--outline:focus {
+  background: var(--theme-primary);
+  color: #fff;
+  border-color: var(--theme-primary);
+}
+
+/* Small screen tweak: ensure tap targets comfortable */
+@media (max-width: 480px) {
+  button, .btn { padding: 0.7rem 0.95rem; font-size: 0.95rem; }
 }

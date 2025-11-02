@@ -10,7 +10,7 @@ const serviceData = [
   {
     title: "Fertility Treatment Packages",
     img: fertilityImg,
-    badge: "IUI", // added badge text
+    badge: "Fertility Treatment", // added badge text
     items: [
       "Timed Intercourse",
       "Intrauterine Insemination (IUI)",

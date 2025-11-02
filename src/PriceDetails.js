@@ -1,11 +1,10 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PriceDetails.css';
-import baby from './assets/Baby.png'; // added import
 
 const PriceDetails = () => {
   const { packageId } = useParams();
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const pricePackages = {
     'iui-without-donor': {
@@ -64,17 +63,9 @@ const PriceDetails = () => {
     );
   }
 
-  // background style using baby.png with a semi-transparent overlay for readability
-  const contentBgStyle = {
-    background: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${baby})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
-  };
-
   return (
     <div className="price-details-container">
-      <div className="price-details-content" style={contentBgStyle}>
+      <div className="price-details-content">
         <button onClick={() => navigate(-1)} className="back-button">
           ← Back to Pricing
         </button>
