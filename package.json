@@ -40,11 +40,11 @@
   },
   "vercelDNSRecords": {
     "apex": { "type": "A", "host": "@", "value": "216.198.79.1", "ttl": 3600 },
-    "www": { "type": "CNAME", "host": "www", "value": "cname.vercel-dns.com", "ttl": 3600 },
+    "www": { "type": "CNAME", "host": "www", "value": "7b76d3153e1fb65b.vercel-dns-017.com", "ttl": 3600 },
     "nameservers": [
       "ns1.vercel-dns.com",
       "ns2.vercel-dns.com"
     ],
-    "note": "Recommended: set domain nameservers to the Vercel nameservers above. If you prefer not to use Vercel DNS, add the A record for @ -> 216.198.79.1 and CNAME www -> cname.vercel-dns.com, and any TXT verification record Vercel provides. Remove conflicting records."
+    "note": "Recommended: set your registrar nameservers to the Vercel nameservers above. If you prefer to manage DNS at your registrar, add the A @ -> 216.198.79.1 and CNAME www -> the exact CNAME shown in Vercel, plus any TXT verification record. Remove conflicting A/CNAME records for the same hosts, wait for propagation, then Refresh in Vercel."
   }
 }
