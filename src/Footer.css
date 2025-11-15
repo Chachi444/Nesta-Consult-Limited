@@ -1,6 +1,6 @@
 /* Classy Footer Styles - uses theme variables from App.css */
 .footer-section {
-  background: #1ca2a5; /* Teal/cyan */
+  background: #913567; /* Teal/cyan */
   color: #ffffff; /* White */
   padding: 2.5rem 0 1.2rem 0;
   text-align: center;
@@ -39,7 +39,7 @@
 }
 
 .footer-social a:hover {
-  color: #f0f0f0; /* Light grey */
+  color: #1ca2a5; /* Light grey */
   background: rgba(255,255,255,0.08);
   transform: scale(1.12);
 }
@@ -61,8 +61,8 @@
 }
 
 .footer-nav a:hover {
-  color: #ffffff; /* White */
-  text-decoration: underline;
+  color: #1ca2a5; /* White */
+  text-decoration: none;
 }
 
 .footer-copy {

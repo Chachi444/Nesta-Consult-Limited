@@ -19,3 +19,5 @@ html, body, #root, .App {
   font-weight: 400;
   line-height: 1.4;
 }
+
+/* Footer link styles: no underline, change color on hover/click/focus */

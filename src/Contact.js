@@ -147,7 +147,7 @@ const Contact = () => {
               </svg>
             </a>
             <a
-              href="https://www.tiktok.com/@nestaconsultlimited?_t=ZS-90w1GAWGGP4&_r=1
+              href="https://www.instagram.com/nesta_consult_limited?igsh=eDh6aXY4aXJ0MWQy&utm_source=ig_contact_invite
 "
               target="_blank"
               rel="noopener noreferrer"
