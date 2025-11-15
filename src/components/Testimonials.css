@@ -135,6 +135,56 @@
   transform: scale(1.1);
 }
 
+/* Make buttons inside the testimonials section very small/tiny circular controls */
+.ncl-testimonials .btn,
+.ncl-testimonials button {
+  width: 24px;               /* tiny circle diameter */
+  height: 24px;
+  padding: 0;                /* remove inner padding */
+  font-size: 0.62rem;        /* very small label size */
+  border-radius: 50%;        /* keep circular */
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+  min-width: 24px;
+  box-sizing: border-box;
+}
+
+/* small primary/outline variants */
+.ncl-testimonials .btn--primary,
+.ncl-testimonials .btn--outline {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* tiny hover effect (subtle) */
+.ncl-testimonials .btn:hover,
+.ncl-testimonials button:hover,
+.ncl-testimonials .btn:focus,
+.ncl-testimonials button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+/* Make the carousel dots extra small */
+.ncl-testimonials__dots .ncl-dot,
+.ncl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* dot hover/active: keep subtle scale */
+.ncl-dot:hover {
+  transform: scale(1.08);
+}
+.ncl-dot.active {
+  transform: scale(1.08);
+  box-shadow: 0 0 8px rgba(28,162,165,0.32);
+}
+
 /* Responsive Tweaks */
 @media (max-width: 767px) {
   .ncl-testimonials__viewport {

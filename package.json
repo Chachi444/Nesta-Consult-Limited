@@ -2,6 +2,7 @@
   "name": "nesta-consult-limited",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://NestaConsultLimited.com.ng",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.8.0",
@@ -36,5 +37,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "vercelDNSRecords": {
+    "apex": { "type": "A", "host": "@", "value": "216.198.79.1", "ttl": 3600 },
+    "www": { "type": "CNAME", "host": "www", "value": "cname.vercel-dns.com", "ttl": 3600 },
+    "nameservers": [
+      "ns1.vercel-dns.com",
+      "ns2.vercel-dns.com"
+    ],
+    "note": "Recommended: set domain nameservers to the Vercel nameservers above. If you prefer not to use Vercel DNS, add the A record for @ -> 216.198.79.1 and CNAME www -> cname.vercel-dns.com, and any TXT verification record Vercel provides. Remove conflicting records."
   }
 }
