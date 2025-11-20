@@ -8,6 +8,10 @@
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.10",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-scripts": "5.0.1",
@@ -56,5 +60,17 @@
       "ns2.vercel-dns.com"
     ],
     "note": "Recommended: set your registrar nameservers to the Vercel nameservers above. If you prefer to manage DNS at your registrar, add the A @ -> 216.198.79.1 and CNAME www -> the exact CNAME shown in Vercel, plus any TXT verification record. Remove conflicting A/CNAME records for the same hosts, wait for propagation, then Refresh in Vercel."
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chachi444/Nesta-Consult-Limited.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chachi444/Nesta-Consult-Limited/issues"
+  },
+  "description": ""
 }

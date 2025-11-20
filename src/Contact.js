@@ -14,10 +14,39 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // prefer an env override; defaults to localhost:5000 in dev
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would handle form submission (e.g., send to API)
+    try {
+      const res = await fetch(`${API_URL}/api/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "contact",
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: form.message,
+        }),
+      });
+
+      if (!res.ok) {
+        // try to read server error message for better feedback
+        const errJson = await res.json().catch(() => null);
+        throw new Error(errJson?.error || "Network response was not ok");
+      }
+
+      setSubmitted(true);
+      // optionally clear form
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      // handle error (brief)
+      console.error("Send email failed", err);
+      // show server-provided message when available
+      alert(err.message || "Could not send message. Please try again later.");
+    }
   };
 
   return (

@@ -10,10 +10,37 @@ const Appointment = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // prefer an env override; defaults to localhost:5000 in dev
+  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Here you would handle appointment submission (e.g., send to API)
+    try {
+      const res = await fetch(`${API_URL}/api/send-email`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "appointment",
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          date: form.date,
+          time: form.time,
+          message: form.message,
+        }),
+      });
+
+      if (!res.ok) {
+        const errJson = await res.json().catch(() => null);
+        throw new Error(errJson?.error || "Network response was not ok");
+      }
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", phone: "", date: "", time: "", message: "" });
+    } catch (err) {
+      console.error("Send appointment failed", err);
+      alert(err.message || "Could not book appointment. Please try again later.");
+    }
   };
 
   return (
